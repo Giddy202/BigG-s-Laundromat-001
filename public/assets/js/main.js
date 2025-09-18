@@ -453,6 +453,8 @@ class BigGsLaundromat {
             
             localStorage.setItem('cart', JSON.stringify(this.cart));
             this.updateCartDisplay();
+            this.updateCartBadge();
+            this.updateCartDropdown();
             this.showNotification('Service added to cart!', 'success');
         }
     }
@@ -461,6 +463,8 @@ class BigGsLaundromat {
         this.cart = this.cart.filter(item => item.serviceId !== serviceId);
         localStorage.setItem('cart', JSON.stringify(this.cart));
         this.updateCartDisplay();
+        this.updateCartBadge();
+        this.updateCartDropdown();
     }
 
     updateCartDisplay() {
@@ -482,13 +486,101 @@ class BigGsLaundromat {
         this.cart = [];
         localStorage.removeItem('cart');
         this.updateCartDisplay();
+        this.updateCartBadge();
+        this.updateCartDropdown();
+    }
+
+    updateCartBadge() {
+        const totalItems = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+        const cartBadge = document.getElementById('navCartBadge');
+        const cartItemCount = document.getElementById('cartItemCount');
+        
+        if (cartBadge) {
+            cartBadge.textContent = totalItems;
+            cartBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
+        }
+        
+        if (cartItemCount) {
+            cartItemCount.textContent = `${totalItems} item${totalItems !== 1 ? 's' : ''}`;
+        }
+    }
+
+    updateCartDropdown() {
+        const cartItems = document.getElementById('cartItems');
+        const cartEmpty = document.getElementById('cartEmpty');
+        const cartDropdownFooter = document.getElementById('cartDropdownFooter');
+        const cartTotal = document.getElementById('cartTotal');
+        
+        if (!cartItems || !cartEmpty || !cartDropdownFooter || !cartTotal) return;
+        
+        if (this.cart.length === 0) {
+            cartEmpty.style.display = 'block';
+            cartItems.innerHTML = '';
+            cartDropdownFooter.style.display = 'none';
+        } else {
+            cartEmpty.style.display = 'none';
+            cartDropdownFooter.style.display = 'block';
+            
+            cartItems.innerHTML = this.cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.service.name}</div>
+                        <div class="cart-item-price">$${item.service.base_price.toFixed(2)}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn" onclick="updateCartQuantity('${item.serviceId}', ${item.quantity - 1})">-</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateCartQuantity('${item.serviceId}', ${item.quantity + 1})">+</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            const total = this.cart.reduce((sum, item) => sum + (item.service.base_price * item.quantity), 0);
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        }
+    }
+
+    updateCartQuantity(serviceId, newQuantity) {
+        if (newQuantity <= 0) {
+            this.removeFromCart(serviceId);
+        } else {
+            const item = this.cart.find(item => item.serviceId === serviceId);
+            if (item) {
+                item.quantity = newQuantity;
+                this.saveCart();
+                this.updateCartDisplay();
+                this.updateCartBadge();
+                this.updateCartDropdown();
+            }
+        }
     }
 }
 
 // Initialize the application when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.bigGsLaundromat = new BigGsLaundromat();
+    // Update cart badge and dropdown on page load
+    if (window.bigGsLaundromat) {
+        window.bigGsLaundromat.updateCartBadge();
+        window.bigGsLaundromat.updateCartDropdown();
+    }
 });
+
+// Global functions for cart dropdown
+window.updateCartQuantity = function(serviceId, newQuantity) {
+    if (window.bigGsLaundromat) {
+        window.bigGsLaundromat.updateCartQuantity(serviceId, newQuantity);
+    }
+};
+
+window.clearCart = function() {
+    if (window.bigGsLaundromat) {
+        window.bigGsLaundromat.clearCart();
+    }
+};
 
 // Global utility functions
 window.showLoading = function(element) {

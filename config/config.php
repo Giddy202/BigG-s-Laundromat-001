@@ -14,7 +14,7 @@ define('DB_CHARSET', 'utf8mb4');
 // Application Configuration
 define('APP_NAME', 'BigG\'s Laundromat');
 define('APP_VERSION', '1.0.0');
-define('APP_URL', 'http://localhost/biggs-laundromat');
+define('APP_URL', 'http://localhost/BigGs%20Laundromat');
 define('APP_TIMEZONE', 'Africa/Nairobi');
 
 // Security Configuration

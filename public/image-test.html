@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test - BigG's Laundromat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .image-test {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .image-test img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🖼️ Image Loading Test</h1>
+        <p>Testing if all images are accessible and loading correctly:</p>
+        
+        <div class="image-test">
+            <h3>Hero Background 1</h3>
+            <img src="assets/images/custom/hero-background.jpg?v=20241219" 
+                 alt="Hero Background 1" 
+                 onload="showStatus('hero1', 'success', '✅ Hero Background 1 loaded successfully')" 
+                 onerror="showStatus('hero1', 'error', '❌ Hero Background 1 failed to load')">
+            <div id="hero1" class="status info">Loading...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Hero Background 2</h3>
+            <img src="assets/images/custom/hero-background-2.jpg?v=20241219" 
+                 alt="Hero Background 2" 
+                 onload="showStatus('hero2', 'success', '✅ Hero Background 2 loaded successfully')" 
+                 onerror="showStatus('hero2', 'error', '❌ Hero Background 2 failed to load')">
+            <div id="hero2" class="status info">Loading...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Hero Background 3</h3>
+            <img src="assets/images/custom/hero-background-3.jpg?v=20241219" 
+                 alt="Hero Background 3" 
+                 onload="showStatus('hero3', 'success', '✅ Hero Background 3 loaded successfully')" 
+                 onerror="showStatus('hero3', 'error', '❌ Hero Background 3 failed to load')">
+            <div id="hero3" class="status info">Loading...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Hero Background 4</h3>
+            <img src="assets/images/custom/hero-background-4.jpg?v=20241219" 
+                 alt="Hero Background 4" 
+                 onload="showStatus('hero4', 'success', '✅ Hero Background 4 loaded successfully')" 
+                 onerror="showStatus('hero4', 'error', '❌ Hero Background 4 failed to load')">
+            <div id="hero4" class="status info">Loading...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Service Card - Laundry</h3>
+            <img src="assets/images/custom/service-cards/laundry-bg.jpg?v=20241219" 
+                 alt="Laundry Service Card" 
+                 onload="showStatus('laundry', 'success', '✅ Laundry service card loaded successfully')" 
+                 onerror="showStatus('laundry', 'error', '❌ Laundry service card failed to load')">
+            <div id="laundry" class="status info">Loading...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Service Card - Upholstery</h3>
+            <img src="assets/images/custom/service-cards/upholstery-bg.jpg?v=20241219" 
+                 alt="Upholstery Service Card" 
+                 onload="showStatus('upholstery', 'success', '✅ Upholstery service card loaded successfully')" 
+                 onerror="showStatus('upholstery', 'error', '❌ Upholstery service card failed to load')">
+            <div id="upholstery" class="status info">Loading...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Service Card - Hotels</h3>
+            <img src="assets/images/custom/service-cards/hotels-bg.jpg?v=20241219" 
+                 alt="Hotels Service Card" 
+                 onload="showStatus('hotels', 'success', '✅ Hotels service card loaded successfully')" 
+                 onerror="showStatus('hotels', 'error', '❌ Hotels service card failed to load')">
+            <div id="hotels" class="status info">Loading...</div>
+        </div>
+        
+        <div class="image-test">
+            <h3>Service Card - Auto</h3>
+            <img src="assets/images/custom/service-cards/auto-bg.jpg?v=20241219" 
+                 alt="Auto Service Card" 
+                 onload="showStatus('auto', 'success', '✅ Auto service card loaded successfully')" 
+                 onerror="showStatus('auto', 'error', '❌ Auto service card failed to load')">
+            <div id="auto" class="status info">Loading...</div>
+        </div>
+        
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="index.html" style="color: white; text-decoration: none; background: #007bff; padding: 10px 20px; border-radius: 5px;">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        function showStatus(id, type, message) {
+            const element = document.getElementById(id);
+            element.className = 'status ' + type;
+            element.textContent = message;
+        }
+        
+        // Test if we can access the images via JavaScript
+        window.addEventListener('load', function() {
+            console.log('Image test page loaded');
+            
+            // Test direct image loading
+            const testImage = new Image();
+            testImage.onload = function() {
+                console.log('Direct image test: SUCCESS');
+            };
+            testImage.onerror = function() {
+                console.log('Direct image test: FAILED');
+            };
+            testImage.src = 'assets/images/custom/hero-background.jpg?v=20241219';
+        });
+    </script>
+</body>
+</html>
+

@@ -68,6 +68,8 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    height: 100%;
+    height: 100dvh; /* Dynamic viewport height for mobile */
 }
 
 body {
@@ -76,6 +78,8 @@ body {
     color: var(--gray-700);
     background-color: var(--white);
     overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
 }
 
 /* Typography */
@@ -442,6 +446,202 @@ a {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Cart Badge Styling */
+.cart-badge {
+    background: var(--royal-blue);
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 0.5rem;
+    min-width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+}
+
+.dropdown-item {
+    color: var(--royal-blue);
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(30, 58, 138, 0.1);
+    color: var(--royal-blue);
+}
+
+/* Cart Dropdown Styling */
+.cart-dropdown {
+    min-width: 320px;
+    max-width: 400px;
+    padding: 0;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cart-dropdown-header {
+    background: var(--royal-blue);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-dropdown-header h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.cart-item-count {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.cart-dropdown-body {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.cart-empty {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--gray-500);
+}
+
+.cart-empty i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+.cart-empty p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    background: var(--gray-100);
+    border-radius: 8px;
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--royal-blue);
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: var(--gray-800);
+}
+
+.cart-item-price {
+    font-size: 0.875rem;
+    color: var(--royal-blue);
+    font-weight: 600;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.quantity-btn {
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--gray-300);
+    background: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+    background: var(--royal-blue);
+    color: white;
+    border-color: var(--royal-blue);
+}
+
+.quantity-display {
+    font-size: 0.875rem;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+.cart-dropdown-footer {
+    background: var(--gray-50);
+    padding: 1rem;
+    border-top: 1px solid var(--gray-200);
+}
+
+.cart-total {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--gray-800);
+}
+
+.cart-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.cart-actions .btn {
+    flex: 1;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+}
+
 /* Order button styles removed */
 
 /* Location Section - Enhanced with Color Themes */
@@ -675,7 +875,7 @@ a {
     padding-top: 80px;
     overflow: hidden;
     width: 100%;
-    background-size: 120%;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
@@ -687,11 +887,12 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-size: 120%;
+    background-image: url('../images/custom/hero-background.jpg?v=20241219');
+    background-size: cover;
     background-position: center center;
     background-attachment: scroll;
     background-repeat: no-repeat;
-    animation: fadeShow 24s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: heroBackgroundFade 16s infinite ease-in-out;
     z-index: 0;
     will-change: background-image, opacity;
     backface-visibility: hidden;
@@ -1061,7 +1262,7 @@ a {
 
 /* Service Card Background Images - Force Load */
 .service-card[data-category="laundry_dry_cleaning"] {
-    background-image: url('../images/custom/service-cards/laundry-bg.jpg?v=3') !important;
+    background-image: url('../images/custom/service-cards/laundry-bg.jpg?v=20241219') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -1069,7 +1270,7 @@ a {
 }
 
 .service-card[data-category="home_upholstery"] {
-    background-image: url('../images/custom/service-cards/upholstery-bg.jpg?v=3') !important;
+    background-image: url('../images/custom/service-cards/upholstery-bg.jpg?v=20241219') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -1077,7 +1278,7 @@ a {
 }
 
 .service-card[data-category="hotels_office"] {
-    background-image: url('../images/custom/service-cards/hotels-bg.jpg?v=3') !important;
+    background-image: url('../images/custom/service-cards/hotels-bg.jpg?v=20241219') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -1085,7 +1286,7 @@ a {
 }
 
 .service-card[data-category="auto_detailing"] {
-    background-image: url('../images/custom/service-cards/auto-bg.jpg?v=3') !important;
+    background-image: url('../images/custom/service-cards/auto-bg.jpg?v=20241219') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -1094,28 +1295,28 @@ a {
 
 /* Alternative approach - Direct class targeting */
 .service-card.laundry-bg {
-    background-image: url('../images/custom/service-cards/laundry-bg.jpg?v=3') !important;
+    background-image: url('../images/custom/service-cards/laundry-bg.jpg?v=20241219') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
 
 .service-card.upholstery-bg {
-    background-image: url('../images/custom/service-cards/upholstery-bg.jpg?v=3') !important;
+    background-image: url('../images/custom/service-cards/upholstery-bg.jpg?v=20241219') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
 
 .service-card.hotels-bg {
-    background-image: url('../images/custom/service-cards/hotels-bg.jpg?v=3') !important;
+    background-image: url('../images/custom/service-cards/hotels-bg.jpg?v=20241219') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
 
 .service-card.auto-bg {
-    background-image: url('../images/custom/service-cards/auto-bg.jpg?v=3') !important;
+    background-image: url('../images/custom/service-cards/auto-bg.jpg?v=20241219') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -1290,7 +1491,6 @@ a {
     padding: 0.75rem 1.5rem;
     font-size: 0.9rem;
     font-weight: 600;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #ffffff;
     border: none;
     border-radius: 25px;
@@ -1298,7 +1498,6 @@ a {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -1320,8 +1519,6 @@ a {
 
 .service-btn:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     color: #ffffff;
 }
 
@@ -1337,6 +1534,70 @@ a {
 
 .service-btn:hover i {
     transform: translateX(3px);
+}
+
+/* Laundry Service Button - Red Theme */
+.service-card.laundry-bg .service-btn,
+.service-card.laundry-bg .btn.service-btn {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%) !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.service-card.laundry-bg .service-btn:hover,
+.service-card.laundry-bg .btn.service-btn:hover {
+    background: linear-gradient(135deg, #ee5a24 0%, #ff6b6b 100%) !important;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5) !important;
+    color: #ffffff !important;
+}
+
+/* Upholstery Service Button - Purple Theme */
+.service-card.upholstery-bg .service-btn,
+.service-card.upholstery-bg .btn.service-btn {
+    background: linear-gradient(135deg, #4834d4 0%, #686de0 100%) !important;
+    box-shadow: 0 4px 15px rgba(72, 52, 212, 0.3) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.service-card.upholstery-bg .service-btn:hover,
+.service-card.upholstery-bg .btn.service-btn:hover {
+    background: linear-gradient(135deg, #686de0 0%, #4834d4 100%) !important;
+    box-shadow: 0 8px 25px rgba(72, 52, 212, 0.5) !important;
+    color: #ffffff !important;
+}
+
+/* Hotels Service Button - Cyan Theme */
+.service-card.hotels-bg .service-btn,
+.service-card.hotels-bg .btn.service-btn {
+    background: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%) !important;
+    box-shadow: 0 4px 15px rgba(0, 210, 211, 0.3) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.service-card.hotels-bg .service-btn:hover,
+.service-card.hotels-bg .btn.service-btn:hover {
+    background: linear-gradient(135deg, #54a0ff 0%, #00d2d3 100%) !important;
+    box-shadow: 0 8px 25px rgba(0, 210, 211, 0.5) !important;
+    color: #ffffff !important;
+}
+
+/* Auto Service Button - Pink Theme */
+.service-card.auto-bg .service-btn,
+.service-card.auto-bg .btn.service-btn {
+    background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%) !important;
+    box-shadow: 0 4px 15px rgba(255, 159, 243, 0.3) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.service-card.auto-bg .service-btn:hover,
+.service-card.auto-bg .btn.service-btn:hover {
+    background: linear-gradient(135deg, #f368e0 0%, #ff9ff3 100%) !important;
+    box-shadow: 0 8px 25px rgba(255, 159, 243, 0.5) !important;
+    color: #ffffff !important;
 }
 
 /* Why Choose Us Section - Full Screen Design */
@@ -1943,23 +2204,127 @@ a {
 .bg-primary { background: var(--gradient-primary) !important; }
 .bg-success { background: var(--gradient-secondary) !important; }
 
+/* Service Button Color Overrides - High Specificity */
+.service-card.laundry-bg a.btn.service-btn {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%) !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.service-card.laundry-bg a.btn.service-btn:hover {
+    background: linear-gradient(135deg, #ee5a24 0%, #ff6b6b 100%) !important;
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5) !important;
+    color: #ffffff !important;
+}
+
+.service-card.upholstery-bg a.btn.service-btn {
+    background: linear-gradient(135deg, #4834d4 0%, #686de0 100%) !important;
+    box-shadow: 0 4px 15px rgba(72, 52, 212, 0.3) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.service-card.upholstery-bg a.btn.service-btn:hover {
+    background: linear-gradient(135deg, #686de0 0%, #4834d4 100%) !important;
+    box-shadow: 0 8px 25px rgba(72, 52, 212, 0.5) !important;
+    color: #ffffff !important;
+}
+
+.service-card.hotels-bg a.btn.service-btn {
+    background: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%) !important;
+    box-shadow: 0 4px 15px rgba(0, 210, 211, 0.3) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.service-card.hotels-bg a.btn.service-btn:hover {
+    background: linear-gradient(135deg, #54a0ff 0%, #00d2d3 100%) !important;
+    box-shadow: 0 8px 25px rgba(0, 210, 211, 0.5) !important;
+    color: #ffffff !important;
+}
+
+.service-card.auto-bg a.btn.service-btn {
+    background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%) !important;
+    box-shadow: 0 4px 15px rgba(255, 159, 243, 0.3) !important;
+    border: none !important;
+    color: #ffffff !important;
+}
+
+.service-card.auto-bg a.btn.service-btn:hover {
+    background: linear-gradient(135deg, #f368e0 0%, #ff9ff3 100%) !important;
+    box-shadow: 0 8px 25px rgba(255, 159, 243, 0.5) !important;
+    color: #ffffff !important;
+}
+
+/* ULTRA HIGH SPECIFICITY OVERRIDE - FINAL ATTEMPT */
+a[href="laundry.html"].btn.service-btn {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
+}
+
+a[href="upholstery.html"].btn.service-btn {
+    background: linear-gradient(135deg, #4834d4 0%, #686de0 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(72, 52, 212, 0.3) !important;
+}
+
+a[href="hotels.html"].btn.service-btn {
+    background: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(0, 210, 211, 0.3) !important;
+}
+
+a[href="auto.html"].btn.service-btn {
+    background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(255, 159, 243, 0.3) !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    .hero-section {
+        min-height: 100vh;
+        min-height: 100dvh; /* Dynamic viewport height for mobile */
+        padding: 2rem 0;
+        display: flex;
+        align-items: center;
+    }
+    
+    .hero-section::after {
+        background-size: cover !important;
+        background-position: center center !important;
+        background-attachment: scroll !important;
+    }
+    
     .title-main {
         font-size: 2.5rem;
+        line-height: 1.2;
     }
     
     .title-subtitle {
         font-size: 1.25rem;
+        line-height: 1.4;
     }
     
     .hero-buttons {
         flex-direction: column;
+        gap: 1rem;
     }
     
     .hero-features {
         flex-direction: column;
         gap: 1rem;
+    }
+    
+    .hero-content {
+        text-align: center;
+        padding: 1rem;
     }
     
     /* Floating card styles removed */
@@ -2185,14 +2550,14 @@ a {
     
     /* Hero Section Mobile Responsive */
     .hero-section::after {
-        background-size: 120%;
+        background-size: cover;
         background-position: center center;
         background-attachment: scroll;
     }
     
     .hero-section {
         min-height: 100vh;
-        background-size: 120%;
+        background-size: cover;
         background-position: center center;
     }
     
@@ -2239,5 +2604,29 @@ a {
     
     .love-text {
         font-size: 0.8rem;
+    }
+}
+
+/* Hero Background Fade Animation */
+@keyframes heroBackgroundFade {
+    0% {
+        background-image: url('../images/custom/hero-background.jpg?v=20241219');
+        opacity: 0.7;
+    }
+    25% {
+        background-image: url('../images/custom/hero-background-2.jpg?v=20241219');
+        opacity: 0.8;
+    }
+    50% {
+        background-image: url('../images/custom/hero-background-3.jpg?v=20241219');
+        opacity: 0.7;
+    }
+    75% {
+        background-image: url('../images/custom/hero-background-4.jpg?v=20241219');
+        opacity: 0.8;
+    }
+    100% {
+        background-image: url('../images/custom/hero-background.jpg?v=20241219');
+        opacity: 0.7;
     }
 }

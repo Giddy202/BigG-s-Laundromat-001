@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=20241219-3">
+    <link rel="stylesheet" href="assets/css/style.css?v=20241219-6">
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
@@ -73,8 +73,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#home">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="laundry.html">Laundry & Dry Cleaning</a></li>
+                            <li><a class="dropdown-item" href="upholstery.html">Home & Upholstery</a></li>
+                            <li><a class="dropdown-item" href="hotels.html">Hotels & Office</a></li>
+                            <li><a class="dropdown-item" href="auto.html">Auto Detailing</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#location">Location</a>
@@ -140,7 +148,7 @@
                         <p class="service-description">
                             Professional washing, ironing, and dry cleaning services for all your garments.
                         </p>
-                        <a href="laundry.html" class="btn btn-outline-primary service-btn">
+                        <a href="laundry.html" class="btn service-btn" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%) !important; color: #ffffff !important; border: none !important; box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;">
                             View Details <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -156,7 +164,7 @@
                         <p class="service-description">
                             Deep cleaning services for your home furniture, carpets, and upholstery.
                         </p>
-                        <a href="upholstery.html" class="btn btn-outline-primary service-btn">
+                        <a href="upholstery.html" class="btn service-btn" style="background: linear-gradient(135deg, #4834d4 0%, #686de0 100%) !important; color: #ffffff !important; border: none !important; box-shadow: 0 4px 15px rgba(72, 52, 212, 0.3) !important;">
                             View Details <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -172,7 +180,7 @@
                         <p class="service-description">
                             Bulk cleaning services for hotels, offices, and commercial spaces.
                         </p>
-                        <a href="hotels.html" class="btn btn-outline-primary service-btn">
+                        <a href="hotels.html" class="btn service-btn" style="background: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%) !important; color: #ffffff !important; border: none !important; box-shadow: 0 4px 15px rgba(0, 210, 211, 0.3) !important;">
                             View Details <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -188,7 +196,7 @@
                         <p class="service-description">
                             Professional car cleaning and detailing services for your vehicle.
                         </p>
-                        <a href="auto.html" class="btn btn-outline-primary service-btn">
+                        <a href="auto.html" class="btn service-btn" style="background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 100%) !important; color: #ffffff !important; border: none !important; box-shadow: 0 4px 15px rgba(255, 159, 243, 0.3) !important;">
                             View Details <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
