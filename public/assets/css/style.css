@@ -871,46 +871,96 @@ a {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
     padding-top: 80px;
     overflow: hidden;
     width: 100%;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 
-.hero-section::after {
-    content: '';
+/* Video Background Container */
+.hero-video-container {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../images/custom/hero-background.jpg?v=20241219');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    animation: heroBackgroundFade 16s infinite ease-in-out;
-    z-index: 0;
-    will-change: background-image, opacity;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    transition: opacity 0.8s ease-in-out;
     width: 100%;
     height: 100%;
+    z-index: 0;
+    overflow: hidden;
 }
 
-.hero-section::before {
-    content: '';
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-video-overlay {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
+}
+
+/* Fallback animation when video is not available */
+.hero-video-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fallback-animation {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    animation: heroGradientShift 8s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.fallback-animation::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: heroPulse 4s ease-in-out infinite;
+}
+
+@keyframes heroPulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes heroGradientShift {
+    0%, 100% {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    25% {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+    50% {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    75% {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
 }
 
 /* Seamless Fade Transition Animation */
@@ -968,12 +1018,47 @@ a {
 .hero-content {
     z-index: 2;
     position: relative;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero-promo {
     margin-top: 1.5rem;
-    margin-bottom: 0;
-    text-align: left;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.hero-description {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.hero-btn {
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .promo-text {
@@ -2296,10 +2381,9 @@ a[href="auto.html"].btn.service-btn {
         align-items: center;
     }
     
-    .hero-section::after {
-        background-size: cover !important;
-        background-position: center center !important;
-        background-attachment: scroll !important;
+    .hero-video {
+        object-fit: cover;
+        object-position: center;
     }
     
     .title-main {
@@ -2325,6 +2409,20 @@ a[href="auto.html"].btn.service-btn {
     .hero-content {
         text-align: center;
         padding: 1rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .hero-btn {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
     }
     
     /* Floating card styles removed */
