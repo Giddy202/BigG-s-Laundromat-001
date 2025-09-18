@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Image Test</title>
+</head>
+<body>
+    <h1>Simple Image Test</h1>
+    <p>Testing if images load without service worker interference:</p>
+    
+    <img src="assets/images/custom/hero-background.jpg" alt="Test 1" style="width: 200px; height: 150px; border: 1px solid #ccc;">
+    <br><br>
+    <img src="assets/images/custom/hero-background-2.jpg" alt="Test 2" style="width: 200px; height: 150px; border: 1px solid #ccc;">
+    <br><br>
+    
+    <p>If you see images above, the files are accessible. If not, there's a server or path issue.</p>
+    
+    <script>
+        // Disable service worker for this test
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(registrations => {
+                registrations.forEach(registration => {
+                    registration.unregister();
+                    console.log('Service worker unregistered for test');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigG's Laundromat - Laundry & Upholstery Services Made Easy</title>
+    <meta name="description" content="Professional laundry, dry cleaning, upholstery, and auto detailing services. Fast, reliable, and eco-friendly solutions for your home and business.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css?v=20241219-3">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+    <!-- 3D Background Effects -->
+    <div class="background-effects">
+        <div class="bubbles-container">
+            <div class="bubble bubble-1"></div>
+            <div class="bubble bubble-2"></div>
+            <div class="bubble bubble-3"></div>
+            <div class="bubble bubble-4"></div>
+            <div class="bubble bubble-5"></div>
+            <div class="bubble bubble-6"></div>
+            <div class="bubble bubble-7"></div>
+            <div class="bubble bubble-8"></div>
+        </div>
+        <div class="wave-container">
+            <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="wave-path"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="wave-path"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="wave-path"></path>
+            </svg>
+        </div>
+        <div class="particles-container">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <div class="brand-logo">
+                    <span class="brand-name">Big<span class="big-g">G</span>'s</span>
+                    <span class="brand-subtitle">Laundromat</span>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#location">Location</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link panel-btn" href="admin/index.html">The Panel</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span class="welcome-text">Welcome to</span>
+                            <span class="title-main">Big<span class="big-g">G</span>'s Laundromat</span>
+                        </h1>
+                        <div class="hero-promo">
+                            <span class="promo-text">16% OFF - Celebrating 2 Years!</span>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="hero-visual">
+                        <!-- Service navigation buttons removed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Services Section -->
+    <section id="services" class="services-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title premium-title">Premium Services</h2>
+                    <p class="section-subtitle premium-subtitle">Professional cleaning solutions for every need</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Laundry & Dry Cleaning -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card laundry-bg" data-category="laundry_dry_cleaning">
+                        <div class="service-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3 class="service-title">Laundry & Dry Cleaning</h3>
+                        <p class="service-description">
+                            Professional washing, ironing, and dry cleaning services for all your garments.
+                        </p>
+                        <a href="laundry.html" class="btn btn-outline-primary service-btn">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Home & Upholstery -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card upholstery-bg" data-category="home_upholstery">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3 class="service-title">Home & Upholstery</h3>
+                        <p class="service-description">
+                            Deep cleaning services for your home furniture, carpets, and upholstery.
+                        </p>
+                        <a href="upholstery.html" class="btn btn-outline-primary service-btn">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hotels & Office -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card hotels-bg" data-category="hotels_office">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 class="service-title">Hotels & Office Upholstery</h3>
+                        <p class="service-description">
+                            Bulk cleaning services for hotels, offices, and commercial spaces.
+                        </p>
+                        <a href="hotels.html" class="btn btn-outline-primary service-btn">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Auto Detailing -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-card auto-bg" data-category="auto_detailing">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 class="service-title">Auto Detailing</h3>
+                        <p class="service-description">
+                            Professional car cleaning and detailing services for your vehicle.
+                        </p>
+                        <a href="auto.html" class="btn btn-outline-primary service-btn">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Why Choose Us Section -->
+    <section id="about" class="why-choose-section">
+        <div class="container-fluid px-0">
+            <div class="why-choose-hero">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 text-center">
+                            <h2 class="why-choose-title">Why Choose <span class="brand-text">Big<span class="big-g">G</span>'s Laundromat</span>?</h2>
+                            <p class="why-choose-subtitle">We make laundry and cleaning services effortless for you</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="why-choose-features">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="feature-card feature-card-1">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <h4>Fast Pickup & Delivery</h4>
+                                <p>Convenient scheduling with same-day pickup and delivery options available.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6">
+                            <div class="feature-card feature-card-2">
+                                <div class="feature-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <h4>Eco-Friendly Products</h4>
+                                <p>We use environmentally safe cleaning products that are gentle on fabrics and the planet.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6">
+                            <div class="feature-card feature-card-3">
+                                <div class="feature-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <h4>Affordable Prices</h4>
+                                <p>Competitive pricing with transparent rates and no hidden fees or surprises.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3 col-md-6">
+                            <div class="feature-card feature-card-4">
+                                <div class="feature-icon">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <h4>Loyalty Rewards</h4>
+                                <p>Earn points with every order and redeem them for discounts on future services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="location-title">Our Location</h2>
+                    <p class="location-subtitle">Find us and visit our facilities</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="location-info-card">
+                        <div class="location-info-header">
+                            <div class="location-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>BigG's Laundromat</h3>
+                        </div>
+                        
+                        <div class="location-details">
+                            <div class="location-item">
+                                <div class="location-item-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="location-item-content">
+                                    <h5>Address</h5>
+                                    <p>Thika YMCA (Runda)<br>Nairobi, Kenya</p>
+                                </div>
+                            </div>
+                            
+                            <div class="location-item">
+                                <div class="location-item-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="location-item-content">
+                                    <h5>Business Hours</h5>
+                                    <p>Monday - Saturday: 8:00 AM - 6:00 PM<br>Sunday: Closed</p>
+                                </div>
+                            </div>
+                            
+                            <div class="location-item">
+                                <div class="location-item-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="location-item-content">
+                                    <h5>Contact</h5>
+                                    <p>Phone: 0792371201<br>Email: biggslaundromat@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="location-actions">
+                            <a href="https://maps.google.com/?q=Thika+YMCA+Runda+Nairobi+Kenya" target="_blank" class="btn btn-location-primary">
+                                <i class="fas fa-map-marked-alt"></i>
+                                Open in Google Maps
+                            </a>
+                            <a href="tel:0792371201" class="btn btn-location-secondary">
+                                <i class="fas fa-phone"></i>
+                                Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="location-map-card">
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8!2d36.8!3d-1.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMTgnMDAuMCJTIDM2wrA0OCcwMC4wIkU!5e0!3m2!1sen!2ske!4v1234567890"
+                                width="100%" 
+                                height="400" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Flow Section -->
+    <section id="order" class="order-flow-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title-beautiful">How It Works</h2>
+                    <p class="section-subtitle-beautiful">Simple steps to get your items cleaned</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="flow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <h5>Select Service</h5>
+                        <p>Choose from our range of professional cleaning services</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="flow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h5>Add to Basket</h5>
+                        <p>Add your selected services to your order basket</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="flow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h5>Checkout</h5>
+                        <p>Complete your order with pickup and delivery details</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="flow-step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h5>Pin Location</h5>
+                        <p>Pin your pickup and delivery locations on the map</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="flow-step">
+                        <div class="step-number">5</div>
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h5>Track Order</h5>
+                        <p>Track your order progress in real-time</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="flow-step">
+                        <div class="step-number">6</div>
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h5>Enjoy Clean Items</h5>
+                        <p>Receive your professionally cleaned items</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title-beautiful">Get In Touch</h2>
+                    <p class="section-subtitle-beautiful">Ready to experience our premium cleaning services?</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Phone</h5>
+                                <p>0792371201</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Email</h5>
+                                <p>biggslaundromat@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Address</h5>
+                                <p>Thika YMCA (Runda)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h5>Business Hours</h5>
+                                <p>Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <div class="brand-logo">
+                            <span class="brand-name">BigG's</span>
+                            <span class="brand-subtitle">Laundromat</span>
+                        </div>
+                        <p class="footer-description">
+                            Professional laundry and upholstery services made easy. 
+                            We deliver quality, convenience, and peace of mind.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="laundry.html">Laundry & Dry Cleaning</a></li>
+                        <li><a href="upholstery.html">Home & Upholstery</a></li>
+                        <li><a href="hotels.html">Hotels & Office</a></li>
+                        <li><a href="auto.html">Auto Detailing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 0792371201</p>
+                        <p><i class="fas fa-envelope"></i> biggslaundromat@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Thika YMCA (Runda)</p>
+                        <p><i class="fas fa-clock"></i> Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="footer-copyright">
+                        &copy; 2024 BigG's Laundromat. All rights reserved.
+                    </p>
+                    <div class="powered-by">
+                        <a href="#" class="powered-link">
+                            <i class="fas fa-bolt powered-icon"></i>
+                            <span class="powered-text">Powered by NexTech</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                    <div class="made-with-love">
+                        <span class="love-text">Made with💚in Kenya</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js?v=20241219-2"></script>
+    <script src="assets/js/animations.js"></script>
+</body>
+</html>

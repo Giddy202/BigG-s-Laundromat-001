@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page - BigG's Laundromat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .info {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Page Test - BigG's Laundromat</h1>
+        
+        <div class="info">
+            <h3>Current Page Information:</h3>
+            <p><strong>URL:</strong> <span id="currentUrl"></span></p>
+            <p><strong>Page Title:</strong> <span id="pageTitle"></span></p>
+            <p><strong>Timestamp:</strong> <span id="timestamp"></span></p>
+        </div>
+        
+        <h3>Test Links:</h3>
+        <a href="checkout.html" class="btn">Go to Checkout Page</a>
+        <a href="laundry.html" class="btn">Go to Laundry Page</a>
+        <a href="index.html" class="btn">Go to Home Page</a>
+        
+        <div class="info">
+            <h3>What You Should See:</h3>
+            <ul style="text-align: left;">
+                <li><strong>Checkout Page:</strong> Should show "✅ CHECKOUT PAGE CLEARED!" message</li>
+                <li><strong>Laundry Page:</strong> Should show service cards with "Wash, Iron & Fold" etc.</li>
+                <li><strong>Home Page:</strong> Should show the main website</li>
+            </ul>
+        </div>
+        
+        <div class="info">
+            <h3>If You Still See Old Checkout Content:</h3>
+            <ol style="text-align: left;">
+                <li>Press <strong>Ctrl+F5</strong> (Windows) or <strong>Cmd+Shift+R</strong> (Mac)</li>
+                <li>Clear your browser cache completely</li>
+                <li>Try opening in an incognito/private window</li>
+                <li>Check if you're actually on the checkout page (URL should end with /checkout.html)</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Display current page info
+        document.getElementById('currentUrl').textContent = window.location.href;
+        document.getElementById('pageTitle').textContent = document.title;
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        
+        console.log('Test page loaded at:', new Date().toLocaleString());
+        console.log('Current URL:', window.location.href);
+    </script>
+</body>
+</html>

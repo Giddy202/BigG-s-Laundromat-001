@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - BigG's Laundromat</title>
+    <meta name="description" content="Admin dashboard for managing laundry services, orders, and customers">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+    <!-- Admin Navigation -->
+    <nav class="admin-navbar">
+        <div class="navbar-brand">
+            <div class="brand-logo">
+                <span class="brand-name">BigG's</span>
+                <span class="brand-subtitle">Admin</span>
+            </div>
+        </div>
+        
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#orders" class="nav-link" data-section="orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders</span>
+                    <span class="badge" id="ordersBadge">0</span>
+                </a>
+                <a href="#customers" class="nav-link" data-section="customers">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#services" class="nav-link" data-section="services">
+                    <i class="fas fa-cogs"></i>
+                    <span>Services</span>
+                </a>
+                <a href="#staff" class="nav-link" data-section="staff">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Staff</span>
+                </a>
+                <a href="#reports" class="nav-link" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#settings" class="nav-link" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </div>
+            
+            <div class="navbar-end">
+                <div class="user-menu">
+                    <div class="user-info">
+                        <img src="../assets/images/admin-avatar.jpg" alt="Admin" class="user-avatar">
+                        <div class="user-details">
+                            <span class="user-name">Admin User</span>
+                            <span class="user-role">Administrator</span>
+                        </div>
+                    </div>
+                    <div class="user-dropdown">
+                        <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="../index.html"><i class="fas fa-home"></i> View Site</a>
+                        <hr>
+                        <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="navbar-toggle" id="navbarToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="admin-section active">
+            <div class="section-header">
+                <h1>Dashboard Overview</h1>
+                <p>Welcome back! Here's what's happening with your business.</p>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalOrders">0</h3>
+                        <p>Total Orders</p>
+                        <span class="stat-change positive">+12% from last month</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalRevenue">KES 0</h3>
+                        <p>Total Revenue</p>
+                        <span class="stat-change positive">+8% from last month</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalCustomers">0</h3>
+                        <p>Total Customers</p>
+                        <span class="stat-change positive">+15% from last month</span>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="pendingOrders">0</h3>
+                        <p>Pending Orders</p>
+                        <span class="stat-change neutral">No change</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Revenue Trend</h3>
+                        <div class="chart-controls">
+                            <select id="revenuePeriod">
+                                <option value="7">Last 7 days</option>
+                                <option value="30" selected>Last 30 days</option>
+                                <option value="90">Last 90 days</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Order Status Distribution</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="orderStatusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="activity-section">
+                <div class="activity-card">
+                    <div class="card-header">
+                        <h3>Recent Orders</h3>
+                        <a href="#orders" class="btn btn-outline-primary">View All</a>
+                    </div>
+                    <div class="activity-list" id="recentOrders">
+                        <!-- Recent orders will be populated here -->
+                    </div>
+                </div>
+                
+                <div class="activity-card">
+                    <div class="card-header">
+                        <h3>Top Services</h3>
+                        <a href="#services" class="btn btn-outline-primary">Manage</a>
+                    </div>
+                    <div class="service-list" id="topServices">
+                        <!-- Top services will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Orders Section -->
+        <section id="orders" class="admin-section">
+            <div class="section-header">
+                <h1>Order Management</h1>
+                <p>Manage and track all customer orders</p>
+            </div>
+            
+            <!-- Order Filters -->
+            <div class="filters-card">
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label>Status</label>
+                        <select id="orderStatusFilter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="ready_for_delivery">Ready for Delivery</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Date Range</label>
+                        <input type="date" id="orderDateFrom">
+                        <input type="date" id="orderDateTo">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Search</label>
+                        <input type="text" id="orderSearch" placeholder="Search orders...">
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                        <button class="btn btn-outline-secondary" id="clearFilters">Clear</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Orders Table -->
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Orders</h3>
+                    <div class="table-actions">
+                        <button class="btn btn-outline-primary" id="exportOrders">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn btn-primary" id="addOrder">
+                            <i class="fas fa-plus"></i> Add Order
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table" id="ordersTable">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Services</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <!-- Orders will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="table-pagination">
+                    <div class="pagination-info">
+                        Showing <span id="ordersStart">1</span> to <span id="ordersEnd">10</span> of <span id="ordersTotal">0</span> orders
+                    </div>
+                    <div class="pagination-controls">
+                        <button class="btn btn-outline-secondary" id="prevPage" disabled>Previous</button>
+                        <span class="page-numbers" id="pageNumbers"></span>
+                        <button class="btn btn-outline-secondary" id="nextPage">Next</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customers Section -->
+        <section id="customers" class="admin-section">
+            <div class="section-header">
+                <h1>Customer Management</h1>
+                <p>Manage customer information and loyalty programs</p>
+            </div>
+            
+            <!-- Customer Stats -->
+            <div class="customer-stats">
+                <div class="stat-item">
+                    <h3 id="totalCustomersCount">0</h3>
+                    <p>Total Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="newCustomersCount">0</h3>
+                    <p>New This Month</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="loyaltyCustomersCount">0</h3>
+                    <p>Loyalty Members</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="avgOrderValue">KES 0</h3>
+                    <p>Avg Order Value</p>
+                </div>
+            </div>
+            
+            <!-- Customer Filters -->
+            <div class="filters-card">
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label>Loyalty Tier</label>
+                        <select id="loyaltyTierFilter">
+                            <option value="">All Tiers</option>
+                            <option value="bronze">Bronze</option>
+                            <option value="silver">Silver</option>
+                            <option value="gold">Gold</option>
+                            <option value="platinum">Platinum</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Search</label>
+                        <input type="text" id="customerSearch" placeholder="Search customers...">
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button class="btn btn-primary" id="applyCustomerFilters">Apply Filters</button>
+                        <button class="btn btn-outline-secondary" id="clearCustomerFilters">Clear</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Customers Table -->
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Customers</h3>
+                    <div class="table-actions">
+                        <button class="btn btn-outline-primary" id="exportCustomers">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                        <button class="btn btn-primary" id="addCustomer">
+                            <i class="fas fa-plus"></i> Add Customer
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table" id="customersTable">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Contact</th>
+                                <th>Loyalty Tier</th>
+                                <th>Total Orders</th>
+                                <th>Total Spent</th>
+                                <th>Last Order</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customersTableBody">
+                            <!-- Customers will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="admin-section">
+            <div class="section-header">
+                <h1>Service Management</h1>
+                <p>Manage your service catalog and pricing</p>
+            </div>
+            
+            <!-- Service Categories -->
+            <div class="service-categories">
+                <button class="category-tab active" data-category="all">All Services</button>
+                <button class="category-tab" data-category="laundry_dry_cleaning">Laundry & Dry Cleaning</button>
+                <button class="category-tab" data-category="home_upholstery">Home & Upholstery</button>
+                <button class="category-tab" data-category="hotels_office">Hotels & Office</button>
+                <button class="category-tab" data-category="auto_detailing">Auto Detailing</button>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services will be populated here -->
+            </div>
+            
+            <!-- Add Service Button -->
+            <div class="add-service-section">
+                <button class="btn btn-primary btn-lg" id="addService">
+                    <i class="fas fa-plus"></i>
+                    Add New Service
+                </button>
+            </div>
+        </section>
+
+        <!-- Staff Section -->
+        <section id="staff" class="admin-section">
+            <div class="section-header">
+                <h1>Staff Management</h1>
+                <p>Manage staff members and their roles</p>
+            </div>
+            
+            <!-- Staff Grid -->
+            <div class="staff-grid" id="staffGrid">
+                <!-- Staff members will be populated here -->
+            </div>
+            
+            <!-- Add Staff Button -->
+            <div class="add-staff-section">
+                <button class="btn btn-primary btn-lg" id="addStaff">
+                    <i class="fas fa-plus"></i>
+                    Add New Staff Member
+                </button>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="admin-section">
+            <div class="section-header">
+                <h1>Reports & Analytics</h1>
+                <p>Analyze your business performance</p>
+            </div>
+            
+            <!-- Report Filters -->
+            <div class="report-filters">
+                <div class="filter-group">
+                    <label>Report Type</label>
+                    <select id="reportType">
+                        <option value="sales">Sales Report</option>
+                        <option value="customers">Customer Report</option>
+                        <option value="services">Service Report</option>
+                        <option value="staff">Staff Performance</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label>Date Range</label>
+                    <input type="date" id="reportDateFrom">
+                    <input type="date" id="reportDateTo">
+                </div>
+                
+                <div class="filter-actions">
+                    <button class="btn btn-primary" id="generateReport">Generate Report</button>
+                    <button class="btn btn-outline-primary" id="exportReport">Export PDF</button>
+                </div>
+            </div>
+            
+            <!-- Report Content -->
+            <div class="report-content" id="reportContent">
+                <!-- Report content will be populated here -->
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="admin-section">
+            <div class="section-header">
+                <h1>System Settings</h1>
+                <p>Configure your system preferences</p>
+            </div>
+            
+            <!-- Settings Tabs -->
+            <div class="settings-tabs">
+                <button class="settings-tab active" data-tab="general">General</button>
+                <button class="settings-tab" data-tab="notifications">Notifications</button>
+                <button class="settings-tab" data-tab="payment">Payment</button>
+                <button class="settings-tab" data-tab="whatsapp">WhatsApp</button>
+                <button class="settings-tab" data-tab="loyalty">Loyalty Program</button>
+            </div>
+            
+            <!-- Settings Content -->
+            <div class="settings-content">
+                <div class="settings-panel active" id="generalSettings">
+                    <h3>General Settings</h3>
+                    <form id="generalSettingsForm">
+                        <div class="form-group">
+                            <label for="businessName">Business Name</label>
+                            <input type="text" id="businessName" name="business_name" value="BigG's Laundromat">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessPhone">Business Phone</label>
+                            <input type="tel" id="businessPhone" name="business_phone" value="+254700000000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessEmail">Business Email</label>
+                            <input type="email" id="businessEmail" name="business_email" value="info@biggslaundromat.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessAddress">Business Address</label>
+                            <textarea id="businessAddress" name="business_address" rows="3">Nairobi, Kenya</textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
+                </div>
+                
+                <div class="settings-panel" id="notificationSettings">
+                    <h3>Notification Settings</h3>
+                    <form id="notificationSettingsForm">
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="email_notifications" checked>
+                                <span class="checkmark"></span>
+                                Email Notifications
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="sms_notifications" checked>
+                                <span class="checkmark"></span>
+                                SMS Notifications
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="whatsapp_notifications" checked>
+                                <span class="checkmark"></span>
+                                WhatsApp Notifications
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
+                </div>
+                
+                <div class="settings-panel" id="paymentSettings">
+                    <h3>Payment Settings</h3>
+                    <form id="paymentSettingsForm">
+                        <div class="form-group">
+                            <label for="defaultCurrency">Default Currency</label>
+                            <select id="defaultCurrency" name="default_currency">
+                                <option value="KES" selected>Kenyan Shilling (KES)</option>
+                                <option value="USD">US Dollar (USD)</option>
+                                <option value="EUR">Euro (EUR)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="deliveryFee">Default Delivery Fee</label>
+                            <input type="number" id="deliveryFee" name="delivery_fee" value="100">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="minOrderAmount">Minimum Order Amount</label>
+                            <input type="number" id="minOrderAmount" name="min_order_amount" value="200">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
+                </div>
+                
+                <div class="settings-panel" id="whatsappSettings">
+                    <h3>WhatsApp Integration</h3>
+                    <form id="whatsappSettingsForm">
+                        <div class="form-group">
+                            <label for="whatsappNumber">WhatsApp Business Number</label>
+                            <input type="tel" id="whatsappNumber" name="whatsapp_number" value="+254700000000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="whatsappToken">WhatsApp API Token</label>
+                            <input type="password" id="whatsappToken" name="whatsapp_token" placeholder="Enter your WhatsApp API token">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="whatsappWebhook">Webhook URL</label>
+                            <input type="url" id="whatsappWebhook" name="whatsapp_webhook" value="https://biggslaundromat.com/api/whatsapp/webhook">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
+                </div>
+                
+                <div class="settings-panel" id="loyaltySettings">
+                    <h3>Loyalty Program Settings</h3>
+                    <form id="loyaltySettingsForm">
+                        <div class="form-group">
+                            <label for="pointsPerShilling">Points per KES Spent</label>
+                            <input type="number" id="pointsPerShilling" name="points_per_shilling" value="1">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="pointsRedemptionRate">Points for KES 1 Discount</label>
+                            <input type="number" id="pointsRedemptionRate" name="points_redemption_rate" value="100">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="silverThreshold">Silver Tier Threshold</label>
+                            <input type="number" id="silverThreshold" name="silver_threshold" value="100">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="goldThreshold">Gold Tier Threshold</label>
+                            <input type="number" id="goldThreshold" name="gold_threshold" value="300">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="platinumThreshold">Platinum Tier Threshold</label>
+                            <input type="number" id="platinumThreshold" name="platinum_threshold" value="500">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <!-- Order Details Modal -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="orderDetailsContent">
+                    <!-- Order details will be populated here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="updateOrderStatus">Update Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div class="modal fade" id="serviceModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Service Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="serviceModalContent">
+                    <!-- Service form will be populated here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveService">Save Service</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Modal -->
+    <div class="modal fade" id="customerModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Customer Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="customerModalContent">
+                    <!-- Customer form will be populated here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveCustomer">Save Customer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Staff Modal -->
+    <div class="modal fade" id="staffModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Staff Member Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="staffModalContent">
+                    <!-- Staff form will be populated here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveStaff">Save Staff Member</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Loading...</h3>
+            <p>Please wait while we fetch the data.</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/animations.js"></script>
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>
+
+

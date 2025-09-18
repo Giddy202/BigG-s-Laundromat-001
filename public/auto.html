@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Detailing - BigG's Laundromat</title>
+    <meta name="description" content="Professional auto detailing services. Comprehensive car cleaning and detailing to keep your vehicle looking like new.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css?v=20241219">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/services.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="auto-page">
+    <!-- 3D Background Effects -->
+    <div class="background-effects">
+        <div class="bubbles-container">
+            <div class="bubble bubble-1"></div>
+            <div class="bubble bubble-2"></div>
+            <div class="bubble bubble-3"></div>
+            <div class="bubble bubble-4"></div>
+            <div class="bubble bubble-5"></div>
+            <div class="bubble bubble-6"></div>
+        </div>
+        <div class="wave-container">
+            <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="wave-path"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="wave-path"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="wave-path"></path>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-name">Big<span class="big-g">G</span>'s</span>
+                <span class="brand-subtitle">Laundromat</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="laundry.html">
+                            <i class="fas fa-tshirt"></i>
+                            <span>Laundry & Dry Cleaning</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="upholstery.html">
+                            <i class="fas fa-home"></i>
+                            <span>Home & Upholstery</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hotels.html">
+                            <i class="fas fa-building"></i>
+                            <span>Hotels & Office</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="auto.html">
+                            <i class="fas fa-car"></i>
+                            <span>Auto Detailing</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">
+                            <i class="fas fa-phone"></i>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link panel-btn" href="admin/index.html">
+                            <i class="fas fa-cog"></i>
+                            <span>The Panel</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header auto-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="page-title">Auto Detailing</h1>
+                    <h2 class="stylish-title auto-theme">Luxury Auto Detailing & Car Care Services</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="service-overview py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Professional Auto Detailing</h2>
+                    <p class="section-subtitle">
+                        Comprehensive car cleaning and detailing services to keep your vehicle in pristine condition.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-grid-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Basic Car Wash -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-detailed auto-theme">
+                        <div class="service-icon">
+                            <i class="fas fa-car-wash"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Basic Car Wash</h3>
+                            <p class="service-description">
+                                Complete exterior wash with soap, rinse, and dry for a clean finish.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Exterior wash</li>
+                                <li><i class="fas fa-check"></i> Tire cleaning</li>
+                                <li><i class="fas fa-check"></i> Wheel cleaning</li>
+                                <li><i class="fas fa-check"></i> Quick service</li>
+                            </ul>
+                            <div class="service-pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price-amount">KES 500/car</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-service="4">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interior Detailing -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-detailed auto-theme">
+                        <div class="service-icon">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Interior Detailing</h3>
+                            <p class="service-description">
+                                Deep cleaning of car interior including seats, dashboard, and carpets.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Seat cleaning</li>
+                                <li><i class="fas fa-check"></i> Dashboard polish</li>
+                                <li><i class="fas fa-check"></i> Carpet vacuum</li>
+                                <li><i class="fas fa-check"></i> Window cleaning</li>
+                            </ul>
+                            <div class="service-pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price-amount">KES 800/car</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-service="4">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full Detail Service -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-detailed auto-theme">
+                        <div class="service-icon">
+                            <i class="fas fa-sparkles"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Full Detail Service</h3>
+                            <p class="service-description">
+                                Complete interior and exterior detailing for showroom finish.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Exterior wash & wax</li>
+                                <li><i class="fas fa-check"></i> Interior deep clean</li>
+                                <li><i class="fas fa-check"></i> Engine bay cleaning</li>
+                                <li><i class="fas fa-check"></i> Premium finish</li>
+                            </ul>
+                            <div class="service-pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price-amount">KES 1500/car</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-service="4">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paint Correction -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-detailed auto-theme">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Paint Correction</h3>
+                            <p class="service-description">
+                                Professional paint correction to remove swirls and restore shine.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Swirl removal</li>
+                                <li><i class="fas fa-check"></i> Paint polishing</li>
+                                <li><i class="fas fa-check"></i> Scratch repair</li>
+                                <li><i class="fas fa-check"></i> Ceramic coating</li>
+                            </ul>
+                            <div class="service-pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price-amount">KES 3000/car</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-service="4">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leather Treatment -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-detailed auto-theme">
+                        <div class="service-icon">
+                            <i class="fas fa-leather"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Leather Treatment</h3>
+                            <p class="service-description">
+                                Specialized cleaning and conditioning for leather seats and surfaces.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Leather cleaning</li>
+                                <li><i class="fas fa-check"></i> Conditioning</li>
+                                <li><i class="fas fa-check"></i> Protection</li>
+                                <li><i class="fas fa-check"></i> Crack prevention</li>
+                            </ul>
+                            <div class="service-pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price-amount">KES 600/car</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-service="4">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Express Service -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-detailed auto-theme">
+                        <div class="service-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="service-title">Express Service</h3>
+                            <p class="service-description">
+                                Quick cleaning service for busy schedules.
+                            </p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 30-minute service</li>
+                                <li><i class="fas fa-check"></i> Basic wash</li>
+                                <li><i class="fas fa-check"></i> Interior wipe</li>
+                                <li><i class="fas fa-check"></i> Tire shine</li>
+                            </ul>
+                            <div class="service-pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price-amount">KES 400/car</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-service="4">
+                                <i class="fas fa-shopping-cart"></i>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">Our Auto Detailing Process</h2>
+                    <p class="section-subtitle">Professional service to keep your vehicle looking its best</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h5>Drop Off</h5>
+                        <p>Bring your vehicle to our facility or schedule pickup</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h5>Inspection</h5>
+                        <p>We assess your vehicle and recommend the best services</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h5>Detailing</h5>
+                        <p>Professional cleaning and detailing using premium products</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h5>Pickup</h5>
+                        <p>Your vehicle is ready for pickup with a showroom finish</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Cart Summary -->
+    <div class="modern-cart-summary" id="modernCartSummary">
+        <div class="cart-header">
+            <h5><i class="fas fa-shopping-cart"></i> Cart Summary</h5>
+            <button class="btn-close" id="closeCartSummary">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+                <span>Add some services to get started</span>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: <span id="cartTotal">KES 0</span></strong>
+            </div>
+            <a href="checkout.html" class="btn btn-primary btn-sm">
+                <i class="fas fa-credit-card"></i>
+                Proceed to Checkout
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <div class="brand-logo">
+                            <span class="brand-name">BigG's</span>
+                            <span class="brand-subtitle">Laundromat</span>
+                        </div>
+                        <p class="footer-description">
+                            Professional laundry and upholstery services made easy. 
+                            We deliver quality, convenience, and peace of mind.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="laundry.html">Laundry & Dry Cleaning</a></li>
+                        <li><a href="upholstery.html">Home & Upholstery</a></li>
+                        <li><a href="hotels.html">Hotels & Office</a></li>
+                        <li><a href="auto.html">Auto Detailing</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 0792371201</p>
+                        <p><i class="fas fa-envelope"></i> biggslaundromat@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Thika YMCA (Runda)</p>
+                        <p><i class="fas fa-clock"></i> Monday - Saturday: 8:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="footer-divider">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="footer-copyright">
+                        &copy; 2024 BigG's Laundromat. All rights reserved.
+                    </p>
+                    <div class="powered-by">
+                        <a href="#" class="powered-link">
+                            <i class="fas fa-bolt powered-icon"></i>
+                            <span class="powered-text">Powered by NexTech</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                    <div class="made-with-love">
+                        <span class="love-text">Made with💚in Kenya</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/service-page.js?v=20241219"></script>
+</body>
+</html>

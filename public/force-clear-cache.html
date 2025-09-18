@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Force Clear Cache - BigG's Laundromat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1E3A8A, #3B82F6);
+            color: white;
+            text-align: center;
+            padding: 50px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        .btn {
+            background: linear-gradient(135deg, #16A34A, #22C55E);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
+        }
+        .status {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        .log {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧹 Force Clear Cache</h1>
+        <p>This will aggressively clear all caches and force reload all resources.</p>
+        
+        <button class="btn" onclick="forceClearCache()">Force Clear All Caches</button>
+        <button class="btn" onclick="goHome()">Go to Home</button>
+        
+        <div class="status" id="status">Ready to clear cache...</div>
+        <div class="log" id="log"></div>
+    </div>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `[${timestamp}] ${message}<br>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        async function forceClearCache() {
+            const status = document.getElementById('status');
+            status.innerHTML = 'Clearing all caches...';
+            log('Starting aggressive cache clear...');
+            
+            try {
+                // Clear localStorage
+                localStorage.clear();
+                log('✅ localStorage cleared');
+                
+                // Clear sessionStorage
+                sessionStorage.clear();
+                log('✅ sessionStorage cleared');
+                
+                // Clear all caches
+                if ('caches' in window) {
+                    const cacheNames = await caches.keys();
+                    log(`Found ${cacheNames.length} caches to clear`);
+                    
+                    for (let cacheName of cacheNames) {
+                        await caches.delete(cacheName);
+                        log(`✅ Deleted cache: ${cacheName}`);
+                    }
+                }
+                
+                // Unregister all service workers
+                if ('serviceWorker' in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    log(`Found ${registrations.length} service workers to unregister`);
+                    
+                    for (let registration of registrations) {
+                        await registration.unregister();
+                        log(`✅ Unregistered service worker: ${registration.scope}`);
+                    }
+                }
+                
+                // Clear IndexedDB
+                if ('indexedDB' in window) {
+                    try {
+                        const databases = await indexedDB.databases();
+                        for (let db of databases) {
+                            indexedDB.deleteDatabase(db.name);
+                            log(`✅ Deleted IndexedDB: ${db.name}`);
+                        }
+                    } catch (e) {
+                        log('⚠️ IndexedDB clear failed: ' + e.message);
+                    }
+                }
+                
+                log('✅ All caches cleared successfully!');
+                status.innerHTML = 'All caches cleared! Reloading page...';
+                
+                // Force reload with cache bypass
+                setTimeout(() => {
+                    window.location.reload(true);
+                }, 2000);
+                
+            } catch (error) {
+                log('❌ Error during cache clear: ' + error.message);
+                status.innerHTML = 'Error during cache clear. Check log for details.';
+            }
+        }
+        
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+        
+        // Auto-clear on page load
+        window.addEventListener('load', function() {
+            log('Page loaded, ready to clear cache');
+        });
+    </script>
+</body>
+</html>
